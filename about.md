@@ -1,6 +1,6 @@
 ---
 layout: page
-title: Proteas
+title: About
 permalink: /about/
 ---
 
