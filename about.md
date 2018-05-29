@@ -4,4 +4,4 @@ title: Proteas
 permalink: /about/
 ---
 
-Nothing here. Move on.
+I'm Proteas Wang.
