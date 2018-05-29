@@ -19,15 +19,15 @@ description: > # this means to ignore newlines until "baseurl:"
 
 baseurl: "" # the subpath of your site, e.g. /blog
 url: "" # the base hostname & protocol for your site, e.g. http://example.com
-twitter_username: ProteasWang
-github_username:  Proteas
+# twitter_username: ProteasWang
+# github_username:  Proteas
 # weibo_username: ProteasWang
 
 # Build settings
 markdown: kramdown
 theme: minima
-gems:
-  - jekyll-feed
+# gems:
+#   - jekyll-feed
 exclude:
   - Gemfile
   - Gemfile.lock
