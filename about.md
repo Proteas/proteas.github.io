@@ -4,7 +4,7 @@ title: About
 permalink: /about/
 ---
 
-I'm Proteas Wang.
+I'm Proteas Wang.<br>
 mail: `proteas[DOT]wang[AT]gmail[DOT]com
 ```
 -----BEGIN PGP PUBLIC KEY BLOCK-----
