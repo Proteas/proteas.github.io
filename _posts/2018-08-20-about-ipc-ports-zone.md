@@ -9,8 +9,8 @@ categories: ios macos exploitation
 * The size of `struct ipc_port` is 168. 
 * The size of kalloc is 4096 * (3 or 4).
 
-# ~~No offset collision~~
-There is no offset collision in one kalloc, so if you can get the offset of a `ipc_port`, you can get the port index and page index.
+# No offset collision
+There is no offset collision in one kalloc(not checked by code yet), so if you can get the offset of a `ipc_port`, you can get the port index and page index.
 
 ```c
 // 0xA8
@@ -23,9 +23,9 @@ uint64_t PRTS_GetPageAndElementInfo(uint64_t kObjAddr)
     };
     
     static uint32_t page1[25] = {
-        0x058, 0x110, 0x1C8, 0x280, 0x338, 0x3F0, 0x4A8, 0x560, 0x618, 0x6D0,
-        0x788, 0x840, 0x8F8, 0x9B0, 0xA68, 0xB20, 0xBD8, 0xC90, 0xD48, 0xE00,
-        0xEB8, 0xE30, 0xED8, 0xF80, 0xFFF
+        0x068, 0x110, 0x1B8, 0x260, 0x308, 0x3B0, 0x458, 0x500, 0x5A8, 0x650,
+        0x6F8, 0x7A0, 0x848, 0x8F0, 0x998, 0xA40, 0xAE8, 0xB90, 0xC38, 0xCE0,
+        0xD88, 0xE30, 0xED8, 0xF80, 0xFFF
     };
     
     static uint32_t page2[25] = {
