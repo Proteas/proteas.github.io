@@ -46,5 +46,29 @@ __TEXT_EXEC:__text:FFFFFFF007A5388C    BRK    #0xC472
 __TEXT_EXEC:__text:FFFFFFF007A538F4 ; End of function _get_bsdtask_info
 ```
 
+## Misc: Some Symbol Address
+* Only for reference, can't guantine the correctness.
+```
+iOS-v14.0-18A5301v-iPhone11,6:
+_pid_for_task: 0xFFFFFFF007EC1638
+_port_name_to_task_name: 0xFFFFFFF0079F9CB0
+_get_bsdtask_info: 0xFFFFFFF007A5385C
+
+_mach_msg_send: 0xFFFFFFF0079DCBEC
+_mach_msg_receive: 0xFFFFFFF0079DD410
+_mach_msg_overwrite_trap: 0xFFFFFFF0079DD544
+_mach_msg_trap: 0xFFFFFFF0079DD9B4
+_mach_msg_overwrite: 0xFFFFFFF0079F2390
+_ipc_kmsg_copyin_header: 0xFFFFFFF0079C261C
+_ipc_kmsg_copyin_body: 0xFFFFFFF0079C373C
+
+__Xmach_vm_read_overwrite: 0xFFFFFFF007A62DFC
+_convert_port_to_map: 0xFFFFFFF0079F8FCC
+_mach_vm_read_overwrite: 0xFFFFFFF007ADD2EC
+
+__Xmach_vm_write: 0xFFFFFFF007A63010
+_vm_map_copy_overwrite: 0xFFFFFFF007AA1F04
+```
+
 ## Reference
 1. [https://twitter.com/WangTielei/status/1275253821963407363](https://twitter.com/WangTielei/status/1275253821963407363)
