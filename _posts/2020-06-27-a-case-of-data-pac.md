@@ -47,4 +47,4 @@ __TEXT_EXEC:__text:FFFFFFF007A538F4 ; End of function _get_bsdtask_info
 ```
 
 ## Reference
-1. https://twitter.com/WangTielei/status/1275253821963407363
+1. [https://twitter.com/WangTielei/status/1275253821963407363](https://twitter.com/WangTielei/status/1275253821963407363)
