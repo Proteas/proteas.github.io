@@ -5,7 +5,7 @@ date:   2020-06-27
 categories: ios
 ---
 
-## A Case of Data PAC: `get_bsdtask_info`
+## A Case of Data PAC: get_bsdtask_info
 
 ### xnu-6153.11.26
 ```c
