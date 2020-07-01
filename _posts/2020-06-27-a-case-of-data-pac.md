@@ -46,6 +46,9 @@ __TEXT_EXEC:__text:FFFFFFF007A5388C    BRK    #0xC472
 __TEXT_EXEC:__text:FFFFFFF007A538F4 ; End of function _get_bsdtask_info
 ```
 
+## Sample
+* [https://github.com/Proteas/hello-data-pac](https://github.com/Proteas/hello-data-pac)
+
 ## Misc: Some Symbol Address
 * Only for reference, can't guantine the correctness.
 * iOS-v14.0-18A5301v-iPhone11,6
