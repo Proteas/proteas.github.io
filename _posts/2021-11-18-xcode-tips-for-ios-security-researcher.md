@@ -5,8 +5,6 @@ date:   2021-11-18
 categories: xcode
 ---
 
-##  Xcode Tips for iOS Security Researcher
-
 ### Reduce Disk Space
 * Note: on your own risk
 
