@@ -47,7 +47,7 @@ Seems `SPTM` is a standalone unit.
 ## MachO
 
 * `Firmware/sptm.t8110.release.im4p`
-* `Firmware/txm.iphoneos.release.im4p`
+* `Firmware/txm.iphoneos.release.im4p`<br/>
 They are not encrypted, can get machos from them, and **do further analysis**.
 
 ## iOS-Kernel
