@@ -10,20 +10,20 @@ categories: ios
 * TXM: Trusted Execution Monitor
 
 ## Device List
-| Device | Build | Device |
-| -------- | ------- | ------- |
-| ipad14p | release | iPad_Fall_2021 |
-| iphone14 | release | iPhone142 |
-| iphone14 | release | iPhone143 |
-| iphone14 | release | iPhone144 |
-| iphone14 | research | iPhone144 |
-| iphone14 | release | iPhone145 |
-| iphone14b | release | iPhone147 |
-| iphone14b | release | iPhone148 |
-| iphone14c | release | iPhone146 |
-| iphone15 | release | iPhone152 |
-| iphone15 | research | iPhone152 |
-| iphone15 | release | iPhone153 |
+```
+ipad14p,   release,  iPad_Fall_2021
+iphone14,  release,  iPhone142
+iphone14,  release,  iPhone143
+iphone14,  release,  iPhone144
+iphone14,  research, iPhone144
+iphone14,  release,  iPhone145
+iphone14b, release,  iPhone147
+iphone14b, release,  iPhone148
+iphone14c, release,  iPhone146
+iphone15,  release,  iPhone152
+iphone15,  research, iPhone152
+iphone15,  release,  iPhone153
+```
 Seems only A15 & A16 have `SPTM`.
 
 ## IMG4
