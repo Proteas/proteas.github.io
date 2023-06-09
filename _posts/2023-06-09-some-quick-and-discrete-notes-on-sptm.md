@@ -6,8 +6,8 @@ categories: ios
 ---
 
 ## Glossary
-* SPTM: Secure Page Table Monitor
-* TXM: Trusted Execution Monitor
+* `SPTM`: `Secure Page Table Monitor`
+* `TXM`: `Trusted Execution Monitor`
 
 ## Device List
 ```
@@ -33,15 +33,15 @@ Seems only A15 & A16 have `SPTM`.
 * `ExclaveOSIntegrityCatalog-path`: `/usr/standalone/firmware/FUD/Ap,ExclaveOSIntegrityCatalog.img4`
 * `ExclaveOSTrustCache-path`: `/usr/standalone/firmware/FUD/Ap,ExclaveOSTrustCache.img4`
 
-## `BuildManifest.plist`
+## BuildManifest.plist
 Keys:
 1. `InstalledSPTM`
 2. `RestoreSPTM`
 3. `Ap,RestoreSecurePageTableMonitor`
 4. `Ap,RestoreTrustedExecutionMonitor`
 5. `Ap,SecurePageTableMonitor`: `Firmware/sptm.t8110.release.im4p`
-6. `Ap,TrustedExecutionMonitor`: `Firmware/txm.iphoneos.release.im4p`
-7. 
+6. `Ap,TrustedExecutionMonitor`: `Firmware/txm.iphoneos.release.im4p`<br/>
+
 Seems `SPTM` is a standalone unit.
 
 ## MachO
@@ -60,7 +60,7 @@ They are not encrypted, can get machos from them, and **do further analysis**.
 
 ## Appendices
 
-### `strings` of `sptm.t8110.release.bin`
+### 1. `strings` of `sptm.t8110.release.bin`
 ```
 [TXM/SK] Unhandled synchronous exception taken from GL0/GL1
 [SPTM] Synchronous exception taken while SP0 selected in GL2
@@ -1153,7 +1153,7 @@ randseed
 
 ```
 
-### `strings` of `txm.iphoneos.release.bin`
+### 2. `strings` of `txm.iphoneos.release.bin`
 ```
 attempted to initialize boot-args again
 page enforcement failed (%u | %u): (%p | %u) --> %u | 0x%016llX
