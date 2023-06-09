@@ -1,4 +1,9 @@
-# Some Quick and Discrete Notes on SPTM
+---
+layout: post
+title:  Some Quick and Discrete Notes on SPTM
+date:   2023-06-09
+categories: ios
+---
 
 ## Glossary
 * SPTM: Secure Page Table Monitor
