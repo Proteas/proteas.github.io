@@ -53,6 +53,12 @@ They are not encrypted, can get machos from them, and **do further analysis**.
 ## iOS-Kernel
 * Segment: `__DATA_SPTM`
 
+## DeviceTree
+The following keys are added.<br/>
+1. `amcc-ctrr-b`
+2. `amcc-ctrr-c`
+3. `amcc-ctrr-d`
+
 
 ## References
 1. https://twitter.com/doadam/status/1666353556700405761
