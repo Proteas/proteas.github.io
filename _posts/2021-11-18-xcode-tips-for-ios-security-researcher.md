@@ -68,10 +68,15 @@ and choose the sdk in Xcode's project config pane.
 ```
 
 ### PS
-1. Xcode 16:
+1. Xcode 16: <br/>
 ```
-iOS developers: there's one more place to clean up if you're running Xcode 16: "/System/Library/AssetsV2/com_apple_MobileAsset_iOSSimulatorRuntime"
-Although it's in /System, it's actually a separate mount point so it is read/write. You can delete older runtime folders in there that you're no longer using. This saved ~30GB on my Mac
+iOS developers: there's one more place to clean up if you're running Xcode 16:
+"/System/Library/AssetsV2/com_apple_MobileAsset_iOSSimulatorRuntime"
+Although it's in /System, it's actually a separate mount point so it is
+read/write. You can delete older runtime folders in there that you're no longer
+using. This saved ~30GB on my Mac
 
 https://mastodon.social/@_inside/112904004439494121
 ```
+
+2. 
