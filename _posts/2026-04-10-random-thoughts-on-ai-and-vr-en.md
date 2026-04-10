@@ -5,6 +5,8 @@ date:   2026-04-10
 categories: sec
 ---
 
+*This article is directly translated from [AI & VR 杂谈](https://proteas.github.io/sec/2026/04/10/random-thoughts-on-ai-and-vr-zh.html) by AI.*
+
 ## Background
 
 After reading the Mythos article, I had some thoughts of my own. This morning I also read Tielei’s piece *“On the Eve of a Major Shift in the VR Industry”*, which was quite inspiring. So I figured I’d share some of my views here, and hopefully others can share their perspectives too.
