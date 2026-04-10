@@ -32,7 +32,7 @@ N-days are still valuable resources. It’s worth watching:
 * Are there any unexpected categories?
 * How many are actually exploitable?
 
-On one hand, we can try to weaponize the ones that are exploitable. On the other, we can use this to indirectly gauge Mythos’s real capabilities.
+On one hand, we can try to exploit the ones that are exploitable. On the other, we can use this to indirectly gauge Mythos’s real capabilities.
 
 ### 0-Day
 
